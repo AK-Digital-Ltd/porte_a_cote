@@ -288,4 +288,139 @@ JS
     }
 }
 
-require_once get_stylesheet_directory() . '/transaction-email.php';
+// require_once get_stylesheet_directory() . '/transaction-email.php';
+
+/**
+ * Code to add to your child theme's functions.php
+ */
+
+// Include the custom order status class
+require_once get_stylesheet_directory() . '/includes/class-custom-order-status.php';
+
+/**
+ * Initialize custom order statuses
+ */
+function child_theme_init_custom_order_statuses() {
+    // Define custom order statuses
+    $custom_statuses = array(
+        'wc-confirmed' => array(
+            'label' => 'Order Confirmed',
+            'public_name' => _x( 'Confirmed', 'Order status', 'child-theme' ),
+            'color' => '#0073aa'
+        ),
+        'wc-preparing' => array(
+            'label' => 'Preparing',
+            'public_name' => _x( 'Preparing', 'Order status', 'child-theme' ),
+            'color' => '#f8a306'
+        ),
+        'wc-shipped' => array(
+            'label' => 'Shipped',
+            'public_name' => _x( 'Shipped', 'Order status', 'child-theme' ),
+            'color' => '#7b35ea'
+        ),
+        'wc-delivered' => array(
+            'label' => 'Delivered',
+            'public_name' => _x( 'Delivered', 'Order status', 'child-theme' ),
+            'color' => '#2ca02c'
+        ),
+    );
+    
+    // Instantiate the class with our custom statuses
+    global $custom_order_status;
+    $custom_order_status = new Custom_Order_Status($custom_statuses);
+    
+    // Add filters for email templates
+    add_filter('woocommerce_email_actions', 'child_theme_add_email_notifications');
+}
+add_action('init', 'child_theme_init_custom_order_statuses', 5);
+
+/**
+ * Add email notifications for status transitions
+ *
+ * @param array $email_actions Existing email actions
+ * @return array Updated email actions
+ */
+function child_theme_add_email_notifications($email_actions) {
+    // Add actions for specific status transitions
+    foreach (array('confirmed', 'preparing', 'shipped', 'delivered') as $status) {
+        $email_actions[] = 'woocommerce_order_status_' . $status;
+    }
+    
+    return $email_actions;
+}
+
+/**
+ * Add custom email templates
+ */
+function child_theme_add_email_templates() {
+    // Define template paths for emails
+    $template_path = get_stylesheet_directory() . '/woocommerce/emails/';
+    
+    // Check and create template directory if needed
+    if (!file_exists($template_path)) {
+        wp_mkdir_p($template_path);
+    }
+}
+add_action('init', 'child_theme_add_email_templates');
+
+/**
+ * Override WooCommerce email templates in the child theme
+ * 
+ * @param string $template Template path
+ * @param string $template_name Template name
+ * @param string $template_path Parent template path
+ * @return string New template path
+ */
+function child_theme_woocommerce_locate_template($template, $template_name, $template_path) {
+    // Check if the template is for an email and a custom status
+    if (strpos($template_name, 'emails/') === 0) {
+        global $custom_order_status;
+        
+        if (isset($custom_order_status)) {
+            $statuses = $custom_order_status->get_custom_statuses();
+            
+            foreach ($statuses as $status_slug => $status_data) {
+                $status_key = str_replace('wc-', '', $status_slug);
+                
+                // Check if template matches a custom status
+                if (strpos($template_name, 'email-' . $status_key) !== false) {
+                    $child_template = get_stylesheet_directory() . '/woocommerce/' . $template_name;
+                    
+                    // Use child theme template if it exists
+                    if (file_exists($child_template)) {
+                        return $child_template;
+                    }
+                }
+            }
+        }
+    }
+    
+    return $template;
+}
+add_filter('woocommerce_locate_template', 'child_theme_woocommerce_locate_template', 10, 3);
+
+/**
+ * Add custom status email notifications for status transitions
+ */
+function child_theme_add_custom_status_email_notifications() {
+    global $custom_order_status;
+    
+    if (isset($custom_order_status)) {
+        $statuses = $custom_order_status->get_custom_statuses();
+        
+        foreach ($statuses as $status_slug => $status_data) {
+            $status_key = str_replace('wc-', '', $status_slug);
+            
+            // Add action to send email when status changes
+            add_action('woocommerce_order_status_' . $status_key, function($order_id) use ($status_key, $status_data) {
+                $order = wc_get_order($order_id);
+                
+                if ($order) {
+                    // Trigger the appropriate email template
+                    do_action('woocommerce_customer_' . $status_key . '_order_email', $order);
+                }
+            }, 10, 1);
+        }
+    }
+}
+add_action('init', 'child_theme_add_custom_status_email_notifications');
