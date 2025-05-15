@@ -1,0 +1,15 @@
+/*
+Theme Name: [ENFANT] Hello Elementor Child
+Theme URI: https://elementor.com/hello-theme/
+Description: Thème enfant pour Hello Elementor
+Author: AGCI
+Author URI: https://votresite.com
+Template: hello-elementor
+Version: 1.0.0
+Text Domain: hello-elementor-child
+*/
+
+/* Importe les styles du thème parent */
+@import url("../hello-elementor/style.css");
+
+/* Vos personnalisations CSS commenceront ici */
