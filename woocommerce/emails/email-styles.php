@@ -576,21 +576,25 @@ border-collapse: collapse;
 
 .footer-info-left {
 width: 60%;
+border-right: 1px solid rgba(198, 198, 198, 1);
+}
+
+.foooter-info-left, .footer-info-right {
 font-size: 14px;
 text-align: center;
-border-right: 1px solid rgba(198, 198, 198, 1);
+}
+
+.footer-info-left p, .footer-info-right p {
+margin-bottom: 4px !important;
 }
 
 .footer-info-right {
 width: 40%;
-font-size: 14px;
-text-align: center;
 }
 
 .footer-info-icon {
 width: 37px;
 height: 37px;
-margin-bottom: 6px;
 }
 
 .footer-info-title {
