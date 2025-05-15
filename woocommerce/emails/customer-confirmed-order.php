@@ -28,27 +28,35 @@ do_action('woocommerce_email_header', $email_heading, $email); ?>
     <span style="color: #BA5C33;"><?php echo esc_html($customer_name); ?></span>
 </p>
 <div style="display:flex; grid-template-columns: repeat(4, 1fr); grid-template-rows: repart(1, 1fr); width: 100%;">
-    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
-        <div style="display: flex; justify-content: center; align-items: center; gap: 8px; width: 33px; height: 33px; background-color: #BA5C33; border-radius: 50%;">
+    <div
+        style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
+        <div
+            style="display: flex; justify-content: center; align-items: center; gap: 8px; width: 33px; height: 33px; background-color: #BA5C33; border-radius: 50%;">
             <img src="http://la-porte-cot.local/wp-content/uploads/2025/05/check-icon.svg" style="margin: 0;"
                 alt="Check Icon">
         </div>
         <p style="font-weight: 600; color: #BA5C33;">Commande confirmée</p>
     </div>
-    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
-        <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 8px; width: 33px; height: 33px; border-radius: 50%; border: 1px solid black;">
+    <div
+        style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
+        <div
+            style="display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 8px; width: 33px; height: 33px; border-radius: 50%; border: 1px solid black;">
             <span>2</span>
         </div>
         <p>Commande en préparation</p>
     </div>
-    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
-        <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 8px; width: 33px; height: 33px; border-radius: 50%; border: 1px solid black;">
+    <div
+        style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
+        <div
+            style="display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 8px; width: 33px; height: 33px; border-radius: 50%; border: 1px solid black;">
             <span>3</span>
         </div>
         <p>Commande expédiée</p>
     </div>
-    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
-        <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 8px; width: 33px; height: 33px; border-radius: 50%; border: 1px solid black;">
+    <div
+        style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
+        <div
+            style="display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 8px; width: 33px; height: 33px; border-radius: 50%; border: 1px solid black;">
             <span>4</span>
         </div>
         <p>Commande livrée</p>

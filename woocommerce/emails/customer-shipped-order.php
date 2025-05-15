@@ -16,6 +16,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
+
+
+
+
 <p><?php printf( esc_html__( 'Hello %s,', 'child-theme' ), esc_html( $order->get_billing_first_name() ) ); ?></p>
 
 <p><?php esc_html_e( 'We are pleased to inform you that your order has been shipped!', 'child-theme' ); ?></p>

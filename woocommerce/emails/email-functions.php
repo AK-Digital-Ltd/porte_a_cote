@@ -9,5 +9,4 @@ function displayTrackingInformation() {
         echo '</div>';
     }
 }
-
 ?>

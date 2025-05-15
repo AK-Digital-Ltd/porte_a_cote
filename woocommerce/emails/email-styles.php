@@ -655,15 +655,11 @@ margin-top: 64px;
 }
 
 .footer-contact-link {
-color: rgba(186, 92, 51, 1);
 text-decoration: underline;
 }
 
-.footer-contact-phone {
-color: rgba(186, 92, 51, 1);
-}
-
-.footer-contact-email {
+.footer-contact-link,
+.footer-contact-phone, .footer-contact-email {
 color: rgba(186, 92, 51, 1);
 }
 
