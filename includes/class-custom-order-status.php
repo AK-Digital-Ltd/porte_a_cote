@@ -153,7 +153,7 @@ class Custom_Order_Status
                         // Get order ID
                         $this->object = wc_get_order($order);
 
-                        if ($this->object) {
+                        if ($this->object instanceof WC_Order) {
                             $this->placeholders['{order_date}'] = wc_format_datetime($this->object->get_date_created());
                             $this->placeholders['{order_number}'] = $this->object->get_order_number();
                             $this->recipient = $this->object->get_billing_email();
@@ -222,10 +222,10 @@ class Custom_Order_Status
                     /**
                      * Get default heading
                      */
-                    public function get_default_heading()
-                    {
-                        return sprintf(__('Your order has been %s', 'child-theme'), strtolower($this->status_data['label']));
-                    }
+                    // public function get_default_heading()
+                    // {
+                    //     return sprintf(__('Your order has been %s', 'child-theme'), strtolower($this->status_data['label']));
+                    // }
                 };
             }
         }
