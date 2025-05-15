@@ -44,11 +44,11 @@ defined( 'ABSPATH' ) || exit;
         </table>
         <div class="social-media-container">
             <p class="social-media-title">SUIVEZ NOUS SUR :</p>
-            <a href="#" class="social-media-link facebook">
+            <a href="https://www.facebook.com/carolelaporteacoteberre" class="social-media-link facebook">
                 <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/facebook.png" alt="Facebook"
                     class="facebook-icon">
             </a>
-            <a href="#" class="social-media-link instagram">
+            <a href="https://www.instagram.com/carolelaporteacote" class="social-media-link instagram">
                 <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/intagram.png" alt="Instagram"
                     class="instagram-icon">
             </a>
