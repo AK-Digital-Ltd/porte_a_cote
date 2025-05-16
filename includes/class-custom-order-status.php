@@ -59,16 +59,30 @@ class Custom_Order_Status
 
     /**
      * Add custom statuses to WooCommerce order status list
+     * Position them right after "Completed" status
      *
      * @param array $order_statuses Existing order statuses
      * @return array Updated order statuses
      */
     public function add_custom_order_statuses($order_statuses)
     {
-        foreach ($this->custom_statuses as $status_slug => $status_data) {
-            $order_statuses[$status_slug] = $status_data['public_name'];
+        // Create a new array to store the reordered statuses
+        $new_order_statuses = array();
+        
+        // Loop through the original statuses
+        foreach ($order_statuses as $key => $status) {
+            // Add the original status
+            $new_order_statuses[$key] = $status;
+            
+            // If this is the "completed" status, add our custom statuses right after it
+            if ($key === 'wc-completed') {
+                foreach ($this->custom_statuses as $status_slug => $status_data) {
+                    $new_order_statuses[$status_slug] = $status_data['public_name'];
+                }
+            }
         }
-        return $order_statuses;
+        
+        return $new_order_statuses;
     }
 
     /**
@@ -222,10 +236,10 @@ class Custom_Order_Status
                     /**
                      * Get default heading
                      */
-                    // public function get_default_heading()
-                    // {
-                    //     return sprintf(__('Your order has been %s', 'child-theme'), strtolower($this->status_data['label']));
-                    // }
+                    public function get_default_heading()
+                    {
+                        return sprintf(__('Your order has been %s', 'child-theme'), strtolower($this->status_data['label']));
+                    }
                 };
             }
         }
