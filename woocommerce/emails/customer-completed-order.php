@@ -58,18 +58,6 @@ do_action('woocommerce_email_header', $email_heading, $email); ?>
 <p><?php esc_html_e('Merci d\'avoir passé commande chez Carole la porte à côté et de nous faire confiance pour votre décoration !', 'child-theme'); ?>
 </p>
 
-<button id="cta_order">Voir ma commande</button>
-
-<div id="infos_order">
-	<h2>VOS INFORMATIONS DE LIVRAISON</h2>
-	<div id="container">
-		<img src="" alt="">
-		<p><span>Livraison :</span> à partir du mardi 05 mai</p>
-		<p><span>Mode de livraison :</span> Livraison à votre domicile</p>
-		<p><span>Adr. de livraison :</span> 355 Rue Albert Einstein, 13290 Aix-en-Provence</p>
-	</div>
-</div>
-
 <?php
 
 /**
