@@ -105,7 +105,7 @@ font-family: 'Segoe UI', Helvetica, Arial, sans-serif !important;
 
 <?php if ( $email_improvements_enabled ) : ?>
 #inner_wrapper {
-background-color: <?php echo esc_attr( $body ); ?>;
+<!-- background-color: <?php echo esc_attr( $body ); ?>; -->
 border-radius: 8px;
 }
 <?php endif; ?>

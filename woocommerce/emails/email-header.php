@@ -46,20 +46,20 @@ $email_improvements_enabled = FeaturesUtil::feature_is_enabled( 'email_improveme
                         <tr>
                             <td align="center" valign="top">
                                 <div id="template_header_image">
-                                    <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/logo-carolelaporteacote.png"
+                                    <img src="http://la-porte-cot.local/wp-content/uploads/2025/05/logo-carolelaporteacote-1.png"
                                         alt="Logo Carole la porte à côté" />
                                 </div>
                                 <table border="0" cellpadding="0" cellspacing="0" width="1124" id="template_container"
                                     align="center">
                                     <tr>
                                         <td align="center" valign="top">
-                                            <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/left-tree.png"
+                                            <img src="http://la-porte-cot.local/wp-content/uploads/2025/05/left-tree-1.png"
                                                 width="200" height="506" class="left-tree" />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td align="center" valign="top">
-                                            <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/right-tree.png"
+                                            <img src="http://la-porte-cot.local/wp-content/uploads/2025/05/right-tree-1.png"
                                                 width="200" height="506" class="right-tree" />
                                         </td>
                                     </tr>
