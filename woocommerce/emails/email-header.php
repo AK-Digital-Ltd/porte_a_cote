@@ -73,5 +73,6 @@ $email_improvements_enabled = FeaturesUtil::feature_is_enabled( 'email_improveme
                                                         <!-- Content -->
                                                         <table border="0" cellpadding="20" cellspacing="0" width="100%">
                                                             <tr>
-                                                                <td valign="top" id="body_content_inner_cell">
+                                                                <td valign="top" id="body_content_inner_cell"
+                                                                    style="padding: 48px 0 !important;">
                                                                     <div id="body_content_inner">

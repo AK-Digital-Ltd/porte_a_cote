@@ -16,38 +16,60 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
-<p><?php printf( esc_html__( 'Hello %s,', 'child-theme' ), esc_html( $order->get_billing_first_name() ) ); ?></p>
-
-<p><?php esc_html_e( 'Great news! Your order is now being prepared for shipment.', 'child-theme' ); ?></p>
-
-<?php
-
-/**
- * Show order details
- */
-do_action( 'woocommerce_email_order_details', $order, $sent_to_admin, $plain_text, $email );
-
-/**
- * Show order meta data
- */
-do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text, $email );
-
-/**
- * Show order items
- */
-do_action( 'woocommerce_email_order_items', $order, $sent_to_admin, $plain_text, $email );
-
-/**
- * Show customer details
- */
-do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email );
-
-/**
- * Additional content for preparing orders
- */
+<?php 
+$order_url = $order->get_view_order_url();
+$customer_first_name = $order->get_billing_first_name();
 ?>
-<p><?php esc_html_e( 'We are carefully packaging your items and will notify you once your order has been shipped.', 'child-theme' ); ?></p>
 
+<div class="email-content">
+    <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/box.png" width="105" height="135" />
+    <h1>Nous préparons votre commande <span><?php echo esc_html($customer_first_name) ?> !</span></h1>
+
+    <div class="product_route">
+        <div class="row">
+            <div class="finish">
+                <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/check.png" width="16"
+                    height="13" style="margin: 0;" alt="Check Icon">
+            </div>
+            <p>Commande confirmée</p>
+        </div>
+        <div class="row dotted">
+            <div class="finish">
+                <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/check.png" width="16"
+                    height="13" style="margin: 0;" alt="Check Icon">
+            </div>
+            <p class="highlight">Commande en préparation</p>
+        </div>
+        <div class="row">
+            <div class="in_progress">
+                <span>3</span>
+            </div>
+            <p>Commande expédiée</p>
+        </div>
+        <div class="row">
+            <div class="in_progress">
+                <span>4</span>
+            </div>
+            <p>Commande livrée</p>
+        </div>
+    </div>
+
+    <div class="email-introduction">
+        <?php if(!empty($customer_first_name)): ?>
+        <p>
+            Bonjour <span><?php echo esc_html( $customer_first_name ); ?></span>,
+        </p>
+        <?php endif; ?>
+        <p>
+            Nous préparons votre commande, lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+            ipsum lorem ipsum lorem ipsum lorem ipsum.
+        </p>
+    </div>
+
+    <a class="follow-order" href="<?php echo esc_url( $order_url ); ?>">
+        Voir ma commande
+    </a>
+</div>
 <?php
 
 /**

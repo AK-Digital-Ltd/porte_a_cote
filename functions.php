@@ -288,8 +288,6 @@ JS
     }
 }
 
-// require_once get_stylesheet_directory() . '/transaction-email.php';
-
 /**
  * Code to add to your child theme's functions.php
  */

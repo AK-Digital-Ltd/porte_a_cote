@@ -7,7 +7,7 @@
  * @package ChildTheme
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
@@ -16,51 +16,83 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
-<p><?php printf( esc_html__( 'Hello %s,', 'child-theme' ), esc_html( $order->get_billing_first_name() ) ); ?></p>
+<?php 
+$order_url = $order->get_view_order_url();
+$customer_first_name = $order->get_billing_first_name();
+$order_id = $order->get_id();
+$order_date = $order->get_date_created();
+$formatted_date = $order_date ? date_i18n('d/m/Y', $order_date->getTimestamp()) : '';
+$shipping_method = $order->get_shipping_method();
 
-<p><?php esc_html_e( 'Your order has been delivered successfully! We hope you enjoy your purchase.', 'child-theme' ); ?></p>
-
-<?php
-
-/**
- * Show order details
- */
-do_action( 'woocommerce_email_order_details', $order, $sent_to_admin, $plain_text, $email );
-
-/**
- * Show order meta data
- */
-do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text, $email );
-
-/**
- * Show order items
- */
-do_action( 'woocommerce_email_order_items', $order, $sent_to_admin, $plain_text, $email );
-
-/**
- * Show customer details
- */
-do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email );
-
-/**
- * Additional content for delivered orders
- */
-?>
-<p><?php esc_html_e( 'If you have any questions or feedback about your order, please don\'t hesitate to contact us.', 'child-theme' ); ?></p>
-
-<?php
-if ($order->get_id()) {
-    $review_link = add_query_arg(array(
-        'order_id' => $order->get_id(),
-        'review_request' => true
-    ), site_url());
-    ?>
-    <p><?php printf(esc_html__('We value your opinion! %sLeave a review%s about your purchase experience.', 'child-theme'), 
-        '<a href="' . esc_url($review_link) . '">', '</a>'); ?></p>
-    <?php
-}
 ?>
 
+<div class="email-content">
+    <h1>Votre commande est arrivée <span><?php echo esc_html($customer_first_name) ?> !</span></h1>
+
+    <div class="product_route">
+        <div class="row">
+            <div class="finish">
+                <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/check.png" width="16"
+                    height="13" style="margin: 0;" alt="Check Icon">
+            </div>
+            <p class="highlight">Commande confirmée</p>
+        </div>
+        <div class="row">
+            <div class="finish">
+                <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/check.png" width="16"
+                    height="13" style="margin: 0;" alt="Check Icon">
+            </div>
+            <p class="highlight">Commande en préparation</p>
+        </div>
+        <div class="row">
+            <div class="finish">
+                <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/check.png" width="16"
+                    height="13" style="margin: 0;" alt="Check Icon">
+            </div>
+            <p class="highlight">Commande expédiée</p>
+        </div>
+        <div class="row">
+            <div class="finish">
+                <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/check.png" width="16"
+                    height="13" style="margin: 0;" alt="Check Icon">
+            </div>
+            <p class="highlight">Commande livrée</p>
+        </div>
+    </div>
+
+    <div class="email-introduction">
+        <?php if(!empty($customer_first_name)): ?>
+        <p>
+            Bonjour <span><?php echo esc_html( $customer_first_name ); ?></span>,
+        </p>
+        <?php endif; ?>
+        <p>
+            Votre commande est arrivé, lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+            ipsum lorem ipsum lorem ipsum lorem ipsum.
+        </p>
+    </div>
+
+    <a class="follow-order" href="<?php echo esc_url( $order_url ); ?>">
+        Suivre ma commande
+    </a>
+
+    <div class="tracking-info">
+        <span>Informations de suivi</span>
+        <div>
+            <ul>
+                <li>Numéro du colis : <span></span></li>
+                <li>Numéro de la commande : <span><?php echo esc_html($order_id); ?></span></li>
+                <li>Date de commande : <span><?php echo esc_html($formatted_date); ?></span></li>
+
+            </ul>
+
+            <ul>
+                <li>Mode de livraison : <span><?php echo esc_html($shipping_method); ?></span></li>
+                <li>Point relais : <span><?php echo esc_html($shipping_method); ?></span></li>
+            </ul>
+        </div>
+    </div>
+</div>
 <?php
 
 /**
