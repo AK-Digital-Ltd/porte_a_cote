@@ -17,19 +17,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 
+<div class="email-content">
+    <div class="email-introduction">
+        <p>
+            Bonjour, <span><?php echo esc_html( $order->get_billing_first_name() ); ?></span>,
+        </p>
+
+        <p>
+            Nous préparons votre commande, lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+            ipsum
+            lorem ipsum lorem ipsum lorem ipsum.
+        </p>
+    </div>
+
+
+    <a class="follow-order" href="<?php echo esc_url( $order->get_view_order_url() ); ?>"
+        style="text-decoration: none; color: #fff;">
+        Suivre ma commande
+    </a>
+</div>
 
 
 
-<p><?php printf( esc_html__( 'Hello %s,', 'child-theme' ), esc_html( $order->get_billing_first_name() ) ); ?></p>
-
-<p><?php esc_html_e( 'We are pleased to inform you that your order has been shipped!', 'child-theme' ); ?></p>
-
-<p><?php 
-    printf( 
-        esc_html__( 'Your tracking number is: %s', 'child-theme' ), 
-        '<strong>' . esc_html( apply_filters( 'child_theme_tracking_number', '', $order ) ) . '</strong>'
-    ); 
-?></p>
 
 <?php
 

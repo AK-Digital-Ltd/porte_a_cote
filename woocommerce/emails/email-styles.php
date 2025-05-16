@@ -668,3 +668,29 @@ color: rgba(186, 92, 51, 1);
 padding: 40px 48px 0 48px;
 text-align: center;
 }
+
+<!-- EMAIL CONTENT -->
+
+.email-content {
+text-align: center;
+}
+
+.email-introduction {
+font-weight: 700;
+color: rgba(0, 0, 0, 1);
+}
+
+.email-introduction span {
+color: rgba(186, 92, 51, 1);
+}
+
+.follow-order {
+margin: 0 auto;
+text-align: center;
+background-color: rgba(186, 92, 51, 1);
+padding: 16px 16px;
+border-radius: 5px;
+border: none;
+font-size: 18px;
+outline: none;
+}
