@@ -836,20 +836,116 @@ font-weight: 600 !important;
 color: #BA5C33 !important;
 }
 
-#cta_order {
-color: #BA5C33 !important;
-padding: 8px 16px;
-border-radius: 5px;
-font-size: 18px !important;
-font-weight: 400 !important;
+#container_CTA {
+display: flex;
+justify-content: stretch;
+align-items: center;
+width: 100%;
+gap: 16px;
 }
 
-#infos_order {
+#container_CTA a {
+display: flex;
+justify-content: center;
+align-items: center;
+flex: 1;
+border-radius: 5px;
+padding: 8px 16px;
+cursor: pointer;
+text-decoration: none;
+}
+
+.show_account {
+border: 2px solid #BA5C33;
+background-color: #FFFFFF;
+color: #BA5C33;
+}
+
+.visit_website {
+border: 2px solid transparent;
+background-color: #BA5C33;
+color: #FFFFFF;
+}
+
+#show_products {
+margin-top: 64px;
+}
+
+#show_products_header {
 display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-background-color: #B38E6B;
-opacity: 0.9;
-border: 1px solid #B38E6B;
+width: 100%
+}
+
+#show_products_header span {
+color: #B38E6B;
+font-size: 20px;
+vertical-align: middle;
+line-height: 39px;
+font-weight: 400;
+}
+
+#show_products_header p {
+color: black;
+font-size: 24px;
+vertical-align: middle;
+line-height: 66px;
+font-weight: 400;
+}
+
+ul.product-suggestions {
+display: flex;
+justify-content: center;
+align-items: center;
+list-style: none;
+padding: 0;
+margin: 20px 0;
+gap: 16px;
+flex-wrap: nowrap;
+}
+
+li.suggested-product {
+display: flex;
+flex-direction: column;
+margin-bottom: 15px;
+padding: 10px;
+border: 1px solid #eee;
+border-radius: 5px;
+}
+
+.product-thumbnail {
+margin-right: 15px;
+}
+
+.product-thumbnail img {
+max-width: 130px;
+aspect-ratio: 2/2; 
+height: auto;
+}
+
+.product-info h4 {
+margin: 0 0 5px 0;
+font-size: 14px;
+text-decoration: none !important;
+}
+
+.product-price {
+font-size: 16px;
+line-height: 24px;
+vertical-align: middle;
+text-decoration: none !important;
+}
+
+.product-price span {
+font-weight: 600;
+text-decoration: none !important;
+color: black !important;
+}
+
+.view-product {
+display: inline-block;
+margin-top: 5px;
+text-decoration: none !important;
 }
