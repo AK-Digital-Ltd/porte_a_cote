@@ -92,7 +92,7 @@ $order_date = esc_html(date_i18n('d/m/Y', $order->get_date_created()->getTimesta
 	<p style="margin: 0 0 8px 0;"><strong><?php echo $order_number; ?></strong></p>
 	<p style="margin: 0;">Passée le : <span><?php echo $order_date; ?></span></p>
 </div>
-<p style="font-weight: 600; font-size: 14px !important;">Vos produits :</p>
+<!-- <p style="font-weight: 600; font-size: 14px !important;">Vos produits :</p> -->
 
 <div style="margin-bottom: <?php echo $email_improvements_enabled ? '24px' : '40px'; ?>;">
 	<table class="td font-family <?php echo esc_attr($order_table_class); ?>" cellspacing="0" cellpadding="6"

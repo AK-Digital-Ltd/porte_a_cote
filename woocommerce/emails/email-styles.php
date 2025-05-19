@@ -745,10 +745,10 @@ text-align: center;
 text-align: center;
 }
 
-.email-introduction {
+<!-- .email-introduction {
 font-weight: 700;
 color: rgba(0, 0, 0, 1);
-}
+} -->
 
 .email-introduction span {
 color: rgba(186, 92, 51, 1);
@@ -836,6 +836,10 @@ font-weight: 600 !important;
 color: #BA5C33 !important;
 }
 
+/**
+* Template New Account
+*/
+
 #container_CTA {
 display: flex;
 justify-content: stretch;
@@ -921,7 +925,7 @@ margin-right: 15px;
 
 .product-thumbnail img {
 max-width: 130px;
-aspect-ratio: 2/2; 
+aspect-ratio: 2/2;
 height: auto;
 }
 
@@ -948,4 +952,68 @@ color: black !important;
 display: inline-block;
 margin-top: 5px;
 text-decoration: none !important;
+}
+
+/**
+* Template Invoice
+*/
+
+#title_invoice {
+width: 100%;
+font-size: 24px;
+font-weight: 600;
+text-align: center;
+}
+
+.btn_show_account {
+border: 2px solid transparent;
+background-color: #BA5C33;
+color: #FFFFFF;
+display: flex;
+justify-content: center;
+align-items: center;
+flex: 1;
+border-radius: 5px;
+padding: 8px 16px;
+cursor: pointer;
+text-decoration: none;
+width: fit-content;
+margin: auto;
+margin-top: 64px;
+}
+
+#delivery_container {
+display: flex;
+justify-content: start;
+align-items: center;
+flex-direction: column;
+gap: 16px;
+margin-top: 64px;
+}
+
+#delivery_infos {
+display: flex;
+justify-content: start;
+align-items: center;
+flex-direction: column
+background-color: rgba(179, 142, 107, 0.1);;
+border: 1px solid #B38E6B;
+border-radius: 5px;
+width: 100%;
+padding: 32px 50px;
+gap: 16px;
+box-sizing: border-box;
+margin-bottom: 32px;
+}
+
+#delivery_infos div#container_address {
+display: flex;
+justify-content: center;
+align-items: start;
+gap: 24px;
+}
+
+.label_infos {
+font-weight: 600;
+color: black !important;
 }

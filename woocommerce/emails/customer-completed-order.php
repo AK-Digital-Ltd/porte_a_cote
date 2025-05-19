@@ -171,7 +171,7 @@ $delivery_mode = 'Livraison à votre domicile';
 </div>
 
 <p>À bientôt,</p>
-<p>- Carole</p>
+
 <?php
 
 /**
