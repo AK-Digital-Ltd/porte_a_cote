@@ -1017,3 +1017,10 @@ gap: 24px;
 font-weight: 600;
 color: black !important;
 }
+
+#title_order_cancelled {
+width: 100%;
+font-size: 24px;
+font-weight: 600;
+text-align: center;
+}
