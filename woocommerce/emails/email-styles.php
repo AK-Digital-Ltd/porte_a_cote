@@ -924,9 +924,26 @@ color: rgba(0, 0, 0, 1) !important;
 color: #666;
 }
 
-.order_summary .total {
+.total {
 font-weight: bold;
 font-size: 16px;
 padding: 8px 0 !important;
+color: rgba(0, 0, 0, 1) !important;
+}
+
+/* PAYMENT FAILED */
+
+.payment-failed {
+margin-top: 64px !important;
+padding: 32px;
+border: 1px solid rgba(202, 202, 202, 1);
+max-width: 424px;
+margin: 0 auto;
+text-align: left;
+text-transform: uppercase;
+}
+
+.payment-failed p {
+margin: 0 !important;
 color: rgba(0, 0, 0, 1) !important;
 }

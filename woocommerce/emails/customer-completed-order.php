@@ -21,6 +21,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// Inclure le fichier de fonctions personnalisées pour les emails
+require_once get_stylesheet_directory() . '/woocommerce/emails/email-functions.php';
+
 $email_improvements_enabled = FeaturesUtil::feature_is_enabled( 'email_improvements' );
 
 /**
@@ -115,95 +118,7 @@ $delivery_mode = 'Livraison à votre domicile';
         </div>
     </div>
 
-
-    <div class="order_recap">
-
-        <?php
-/**
- * Show order details
- */
-do_action('woocommerce_email_order_details', $order, $sent_to_admin, $plain_text, $email);
-
-/**
- * Show order meta data
- */
-// do_action('woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text, $email);
-
-/**
- * Show order items
- */
-do_action('woocommerce_email_order_items', $order, $sent_to_admin, $plain_text, $email);
-
-/**
- * Show customer details
- */
-// do_action('woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email);
-
-/**
- * Additional content for confirmed orders
- */
-
-?>
-    </div>
-    <div class="order_recap">
-        <div class="billing_address">
-            <h2>Adresse de facturation :</h2>
-            <div>
-                <p><?php echo esc_html($billing_first_name . ' ' . $billing_last_name); ?>
-                </p>
-                <p><?php echo esc_html($billing_address_1); ?>,
-                    <?php echo esc_html($billing_postcode . ' ' . $billing_city); ?>
-                </p>
-                <p><?php echo esc_html($billing_country); ?></p>
-                <p><?php echo esc_html($billing_phone); ?></p>
-            </div>
-        </div>
-
-        <!-- Récapitulatif de commande stylisé -->
-        <div class="order_summary">
-            <table>
-                <tr>
-                    <td colspan="2" class="border"></td>
-                </tr>
-                <!-- Sous-total -->
-                <tr>
-                    <td id="first">Sous total :</td>
-                    <td id="first"><?php echo wc_price($subtotal); ?>
-                    </td>
-                </tr>
-
-                <!-- Frais d'expédition -->
-                <tr>
-                    <td>Frais d'expédition :</td>
-                    <td>
-                        <?php if ($shipping_included): ?>
-                        <span>(inclus) <?php echo wc_price($shipping_total); ?></span>
-                        <?php else: ?>
-                        <?php echo wc_price($shipping_total); ?>
-                        <?php endif; ?>
-                    </td>
-                </tr>
-
-                <!-- Remise -->
-                <tr>
-                    <td>Total remise :</td>
-                    <td>
-                        <?php echo wc_price($discount_total); ?>
-                    </td>
-                </tr>
-
-                <!-- Total TTC -->
-                <tr>
-                    <td class="total">Total TTC</td>
-                    <td class="total">
-                        <?php echo wc_price($total); ?></td>
-                </tr>
-                <tr>
-                    <td colspan="2" class="border"></td>
-                </tr>
-            </table>
-        </div>
-    </div>
+    <?php display_order_recap($order, $sent_to_admin, $plain_text, $email); ?>
 
 </div>
 <?php
