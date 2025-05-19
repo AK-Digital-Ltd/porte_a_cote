@@ -422,3 +422,22 @@ function child_theme_add_custom_status_email_notifications() {
     }
 }
 add_action('init', 'child_theme_add_custom_status_email_notifications');
+
+add_filter('woocommerce_email_order_details', function($order, $sent_to_admin, $plain_text, $email) {
+    // Suppression du hook qui affiche les totaux
+    remove_action('woocommerce_email_after_order_table', array(WC()->mailer()->emails['WC_Email_Customer_Completed_Order'], 'order_details_table'), 10);
+    
+    return $order;
+}, 5, 4);
+
+// Désactiver les totaux de commande dans les emails
+add_filter('woocommerce_get_order_item_totals', function($total_rows, $order, $tax_display) {
+    // Si nous sommes dans un email
+    if (did_action('woocommerce_email_header')) {
+        // Vider complètement le tableau des totaux
+        return array();
+    }
+    return $total_rows;
+}, 10, 3);
+
+add_filter( 'woocommerce_feature_email_improvements', '__return_true' );

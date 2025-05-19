@@ -665,8 +665,8 @@ color: rgba(186, 92, 51, 1);
 
 /* Main footer container */
 .footer-container {
-padding: 40px 48px 0 48px;
 text-align: center;
+padding: 0 !important;
 }
 
 /* EMAIL CONTENT */
@@ -836,4 +836,97 @@ padding: 4px 0;
 .tracking-info ul li span, .delivery-info-content ul li span {
 color: rgba(65, 66, 65, 1);
 font-weight: 400;
+}
+
+/* ORDER RECAP */
+
+.order_recap {
+max-width: 548px !important;
+margin: 0 auto;
+}
+
+.order_details {
+border :none !important;
+}
+
+.recap {
+display: block;
+line-height: 130%;
+text-align: center !important;
+font-size: 16px;
+font-weight: 600;
+color: rgba(0,0,0,1);
+margin-top: 64px;
+}
+
+.price {
+font-weight: 600;
+color: rgba(38, 38, 38, 1);
+margin-left: 8px;
+}
+
+/* BILLING ADRESS */
+
+.billing_address {
+margin-top: 0px;
+margin-bottom: 0px;
+}
+
+.billing_address h2 {
+color: #333;
+font-size: 18px;
+margin-bottom: 15px;
+}
+
+.billing_address div {
+padding: 10px 0;
+text-align: left;
+}
+
+.billing_address p {
+margin: 2px 0 !important;
+}
+
+/* ORDER SUMMARY */
+
+.order_summary {
+margin-bottom: 82px;
+}
+
+.order_summary table {
+width: 100%;
+border-collapse: collapse;
+}
+
+.order_summary .border {
+border-bottom: 2px solid #ddd;
+}
+
+.order_summary tr td {
+color: rgba(0, 0, 0, 1);
+padding: 4px 0 !important;
+}
+
+#first {
+padding-top: 12px !important;
+}
+
+.order_summary tr td:first-child {
+text-align: left;
+}
+
+.order_summary tr td:last-child {
+text-align: right;
+color: rgba(0, 0, 0, 1) !important;
+}
+
+.order_summary span {
+color: #666;
+}
+
+.order_summary .total {
+font-weight: bold;
+font-size: 16px;
+padding: 8px 0 !important;
+color: rgba(0, 0, 0, 1) !important;
 }
