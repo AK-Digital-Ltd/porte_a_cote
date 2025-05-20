@@ -301,11 +301,6 @@ require_once get_stylesheet_directory() . '/includes/class-custom-order-status.p
 function child_theme_init_custom_order_statuses() {
     // Define custom order statuses
     $custom_statuses = array(
-        'wc-confirmed' => array(
-            'label' => 'Order Confirmed',
-            'public_name' => _x( 'Confirmed', 'Order status', 'child-theme' ),
-            'color' => '#0073aa'
-        ),
         'wc-preparing' => array(
             'label' => 'Preparing',
             'public_name' => _x( 'Preparing', 'Order status', 'child-theme' ),
@@ -440,4 +435,196 @@ add_filter('woocommerce_get_order_item_totals', function($total_rows, $order, $t
     return $total_rows;
 }, 10, 3);
 
-add_filter( 'woocommerce_feature_email_improvements', '__return_true' );
+if (!function_exists('wc_suggested_products_for_emails')) {
+    /**
+     * Affiche une liste de produits suggérés dans les emails
+     * 
+     * @param int $number_of_products Nombre de produits à afficher
+     * @param string $orderby Critère de tri ('date', 'popularity', 'rating', etc.)
+     * @param string $order Ordre de tri ('DESC' ou 'ASC')
+     * @return void
+     */
+    function wc_suggested_products_for_emails($number_of_products = 4, $orderby = 'date', $order = 'DESC') {
+        // Configuration de la requête pour récupérer les produits
+        $args = array(
+            'post_type'      => 'product',
+            'posts_per_page' => $number_of_products,
+            'post_status'    => 'publish',
+            'orderby'        => $orderby,
+            'order'          => $order,
+        );
+        
+        // Pour les produits les plus vendus
+        if ($orderby === 'popularity') {
+            $args['meta_key'] = 'total_sales';
+            $args['orderby']  = 'meta_value_num';
+        }
+        
+        $products = new WP_Query($args);
+        
+        // Début du HTML pour l'affichage des produits
+        ob_start();
+        ?>
+<div id="show_products">
+    <div id="show_products_header">
+        <span>PSSSSSSST !</span>
+        <p>Ces articles pourraient aussi vous intéresser</p>
+    </div>
+    <div id="suggested_products">
+        <ul class="product-suggestions">
+            <?php
+                    if ($products->have_posts()):
+                        while ($products->have_posts()):
+                            $products->the_post();
+                            global $product;
+                            
+                            // Si le produit existe et est visible
+                            if (!$product || !$product->is_visible()) {
+                                continue;
+                            }
+                            
+                            // Récupération des informations du produit
+                            $product_id = $product->get_id();
+                            $product_url = get_permalink($product_id);
+                            $product_image = wp_get_attachment_image_src(get_post_thumbnail_id($product_id), 'thumbnail');
+                            $product_price = $product->get_price_html();
+                            $product_title = get_the_title();
+                            ?>
+
+            <li class="suggested-product">
+                <a href="<?php echo esc_url($product_url); ?>" class="view-product">
+                    <div class="product-thumbnail">
+                        <?php if ($product_image): ?>
+                        <img src="<?php echo esc_url($product_image[0]); ?>"
+                            alt="<?php echo esc_attr($product_title); ?>">
+                        <?php else: ?>
+                        <img src="<?php echo esc_url(wc_placeholder_img_src()); ?>"
+                            alt="<?php echo esc_attr($product_title); ?>">
+                        <?php endif; ?>
+                    </div>
+                    <div class="product-info">
+                        <h4><?php echo esc_html($product_title); ?></h4>
+                        <p class="product-price"><span><?php echo $product_price; ?></span> TTC</p>
+                    </div>
+                </a>
+            </li>
+
+            <?php endwhile;
+                        wp_reset_postdata();
+                    else: ?>
+            <li class="no-products">Aucun produit à suggérer pour le moment.</li>
+            <?php endif; ?>
+        </ul>
+    </div>
+</div>
+<?php
+        return ob_get_clean();
+    }
+}
+
+/**
+ * Hook pour ajouter les produits suggérés dans les emails WooCommerce
+ */
+if (!function_exists('add_suggested_products_to_emails')) {
+    function add_suggested_products_to_emails($email_heading, $email) {
+        // Liste des types d'emails où vous souhaitez afficher les produits suggérés
+        $email_types = array(
+            'customer_new_account',           // Email de création de compte
+            'customer_completed_order',       // Email de commande terminée
+            // Ajoutez d'autres types d'emails au besoin
+        );
+        
+        // Vérifiez si l'email actuel est dans la liste des types d'emails souhaités
+        if (is_object($email) && in_array($email->id, $email_types)) {
+            echo wc_suggested_products_for_emails(4, 'date', 'DESC');
+        }
+    }
+}
+
+// Ajouter le hook pour les emails
+add_action('woocommerce_email_after_main_content', 'add_suggested_products_to_emails', 10, 2);
+
+/**
+ * Ajouter les styles CSS pour les produits suggérés dans les emails
+ * Hook utile pour ajouter des styles CSS au format inline dans les emails WooCommerce
+ */
+if (!function_exists('add_suggested_products_email_styles')) {
+    function add_suggested_products_email_styles($css) {
+        $custom_css = '
+            #show_products {
+                margin: 30px 0;
+            }
+            #show_products_header {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            #show_products_header span {
+                display: block;
+                font-size: 18px;
+                font-weight: bold;
+                color: #ff6b35;
+                margin-bottom: 5px;
+            }
+            #show_products_header p {
+                font-size: 16px;
+                margin: 0;
+            }
+            .product-suggestions {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            .suggested-product {
+                width: 48%;
+                margin-bottom: 15px;
+                border: 1px solid #eee;
+                border-radius: 5px;
+                overflow: hidden;
+            }
+            .suggested-product a {
+                display: block;
+                text-decoration: none;
+                color: inherit;
+            }
+            .product-thumbnail {
+                text-align: center;
+                padding: 10px;
+                background-color: #f9f9f9;
+            }
+            .product-thumbnail img {
+                max-width: 100%;
+                height: auto;
+            }
+            .product-info {
+                padding: 10px;
+            }
+            .product-info h4 {
+                margin: 0 0 5px 0;
+                font-size: 14px;
+                color: #333;
+            }
+            .product-price {
+                font-size: 13px;
+                margin: 0;
+            }
+            .product-price span {
+                font-weight: bold;
+                color: #ff6b35;
+            }
+            .no-products {
+                width: 100%;
+                text-align: center;
+                padding: 15px;
+                color: #666;
+            }
+        ';
+        
+        return $css . $custom_css;
+    }
+}
+
+// Ajouter les styles CSS aux emails
+add_filter('woocommerce_email_styles', 'add_suggested_products_email_styles');
