@@ -947,3 +947,67 @@ text-transform: uppercase;
 margin: 0 !important;
 color: rgba(0, 0, 0, 1) !important;
 }
+
+
+/* INVOICES */
+
+#title_invoice {
+width: 100%;
+font-size: 24px;
+font-weight: 600;
+text-align: center;
+}
+
+.btn_show_account {
+border: 2px solid transparent;
+background-color: #BA5C33;
+color: #FFFFFF;
+display: flex;
+justify-content: center;
+align-items: center;
+flex: 1;
+border-radius: 5px;
+padding: 8px 16px;
+cursor: pointer;
+text-decoration: none;
+width: fit-content;
+margin: auto;
+margin-top: 64px;
+}
+
+
+#delivery_container {
+display: flex;
+justify-content: start;
+align-items: center;
+flex-direction: column;
+gap: 16px;
+margin-top: 64px;
+}
+
+#delivery_infos {
+display: flex;
+justify-content: start;
+align-items: center;
+flex-direction: column
+background-color: rgba(179, 142, 107, 0.1);;
+border: 1px solid #B38E6B;
+border-radius: 5px;
+width: 100%;
+padding: 32px 50px;
+gap: 16px;
+box-sizing: border-box;
+margin-bottom: 32px;
+}
+
+#delivery_infos div#container_address {
+display: flex;
+justify-content: center;
+align-items: start;
+gap: 24px;
+}
+
+.label_infos {
+font-weight: 600;
+color: black !important;
+}
