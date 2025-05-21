@@ -26,32 +26,8 @@ $customer_first_name = $order->get_billing_first_name();
     <h1>Nous préparons votre commande <span><?php echo esc_html($customer_first_name) ?> !</span></h1>
 
     <div class="product_route">
-        <div class="row">
-            <div class="finish">
-                <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/check.png" width="16"
-                    height="13" style="margin: 0;" alt="Check Icon">
-            </div>
-            <p>Commande confirmée</p>
-        </div>
-        <div class="row dotted">
-            <div class="finish">
-                <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/check.png" width="16"
-                    height="13" style="margin: 0;" alt="Check Icon">
-            </div>
-            <p class="highlight">Commande en préparation</p>
-        </div>
-        <div class="row">
-            <div class="in_progress">
-                <span>3</span>
-            </div>
-            <p>Commande expédiée</p>
-        </div>
-        <div class="row">
-            <div class="in_progress">
-                <span>4</span>
-            </div>
-            <p>Commande livrée</p>
-        </div>
+        <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/tracker-step-2.png"
+            alt="step tracker" width="642" height="60" />
     </div>
 
     <div class="email-introduction">

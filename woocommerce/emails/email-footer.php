@@ -32,7 +32,8 @@ defined( 'ABSPATH' ) || exit;
                         alt="Point de vente" class="footer-info-icon" /></a>
                     <p class="footer-info-title">Notre point de vente</p>
                     <u class="footer-info-value">1455 Boulevard Henri Barbusse,
-                        13020 Bierre-l'Étang</u>
+                        13020 Bierre-l'Étang
+                    </u>
                 </td>
                 <td class="footer-info-right">
                     <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/mingcute_phone-fill.png"

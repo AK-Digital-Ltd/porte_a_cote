@@ -30,33 +30,8 @@ $shipping_method = $order->get_shipping_method();
     <h1>Votre commande est en route <span><?php echo esc_html($customer_first_name) ?> !</span></h1>
 
     <div class="product_route">
-        <div class="row">
-            <div class="finish">
-                <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/check.png" width="16"
-                    height="13" style="margin: 0;" alt="Check Icon">
-            </div>
-            <p class="highlight">Commande confirmée</p>
-        </div>
-        <div class="row">
-            <div class="finish">
-                <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/check.png" width="16"
-                    height="13" style="margin: 0;" alt="Check Icon">
-            </div>
-            <p class="highlight">Commande en préparation</p>
-        </div>
-        <div class="row dotted">
-            <div class="finish">
-                <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/check.png" width="16"
-                    height="13" style="margin: 0;" alt="Check Icon">
-            </div>
-            <p class="highlight">Commande expédiée</p>
-        </div>
-        <div class="row">
-            <div class="in_progress">
-                <span>4</span>
-            </div>
-            <p>Commande livrée</p>
-        </div>
+        <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/tracker-step-3.png"
+            alt="step tracker" width="642" height="60" />
     </div>
 
     <div class="email-introduction">
@@ -82,9 +57,7 @@ $shipping_method = $order->get_shipping_method();
                 <li>Numéro du colis : <span></span></li>
                 <li>Numéro de la commande : <span><?php echo esc_html($order_id); ?></span></li>
                 <li>Date de commande : <span><?php echo esc_html($formatted_date); ?></span></li>
-
             </ul>
-
             <ul>
                 <li>Mode de livraison : <span><?php echo esc_html($shipping_method); ?></span></li>
                 <li>Point relais : <span><?php echo esc_html($shipping_method); ?></span></li>

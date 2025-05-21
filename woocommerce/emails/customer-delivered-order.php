@@ -29,37 +29,6 @@ $shipping_method = $order->get_shipping_method();
 <div class="email-content">
     <h1>Votre commande est arrivée <span><?php echo esc_html($customer_first_name) ?> !</span></h1>
 
-    <div class="product_route">
-        <div class="row">
-            <div class="finish">
-                <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/check.png" width="16"
-                    height="13" style="margin: 0;" alt="Check Icon">
-            </div>
-            <p class="highlight">Commande confirmée</p>
-        </div>
-        <div class="row">
-            <div class="finish">
-                <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/check.png" width="16"
-                    height="13" style="margin: 0;" alt="Check Icon">
-            </div>
-            <p class="highlight">Commande en préparation</p>
-        </div>
-        <div class="row">
-            <div class="finish">
-                <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/check.png" width="16"
-                    height="13" style="margin: 0;" alt="Check Icon">
-            </div>
-            <p class="highlight">Commande expédiée</p>
-        </div>
-        <div class="row">
-            <div class="finish">
-                <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/check.png" width="16"
-                    height="13" style="margin: 0;" alt="Check Icon">
-            </div>
-            <p class="highlight">Commande livrée</p>
-        </div>
-    </div>
-
     <div class="email-introduction">
         <?php if(!empty($customer_first_name)): ?>
         <p>

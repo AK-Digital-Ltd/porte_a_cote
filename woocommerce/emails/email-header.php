@@ -53,18 +53,6 @@ $email_improvements_enabled = FeaturesUtil::feature_is_enabled( 'email_improveme
                                     align="center">
                                     <tr>
                                         <td align="center" valign="top">
-                                            <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/left-tree.png"
-                                                width="200" height="506" class="left-tree" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td align="center" valign="top">
-                                            <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/right-tree.png"
-                                                width="200" height="506" class="right-tree" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td align="center" valign="top">
                                             <!-- Body -->
                                             <table border="0" cellpadding="0" cellspacing="0" width="100%"
                                                 id="template_body">

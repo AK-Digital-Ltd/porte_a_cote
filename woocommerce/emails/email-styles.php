@@ -127,25 +127,10 @@ height: auto;
 }
 
 #template_container {
-position: relative;
 border-radius: 5px !important;
 background-color: #ffffff;
 margin: 0 auto !important;
 padding: 24px;
-}
-
-.left-tree, .right-tree {
-position: absolute;
-}
-
-.left-tree {
-top: 56px;
-left: 0;
-}
-
-.right-tree {
-right: -10px;
-bottom: 24px;
 }
 
 #template_body {
