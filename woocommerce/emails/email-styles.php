@@ -996,7 +996,7 @@ display: flex;
 justify-content: start;
 align-items: center;
 flex-direction: column
-background-color: rgba(179, 142, 107, 0.1);;
+background-color: rgba(179, 142, 107, 0.1);
 border: 1px solid #B38E6B;
 border-radius: 5px;
 width: 100%;
