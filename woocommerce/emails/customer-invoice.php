@@ -33,7 +33,6 @@ $email_improvements_enabled = FeaturesUtil::feature_is_enabled('email_improvemen
  */
 do_action('woocommerce_email_header', $email_heading, $email); ?>
 
-<?php echo $email_improvements_enabled ? '<div class="email-introduction">' : ''; ?>
 <p id="title_invoice">Votre facture</p>
 <p>Bonjour
     <span class="orange_color" style="font-weight: 600;">
@@ -84,11 +83,12 @@ $formatted_date = ucfirst($formatted_date); // Met la première lettre en majusc
 <div id="delivery_container">
     <h2>VOS INFORMATIONS DE LIVRAISON</h2>
     <div id="delivery_infos">
+		<img src="http://la-porte-cot.local/wp-content/uploads/2025/05/solar_delivery-broken.png" alt="icon livraison">
         <p><span class="label_infos">Livrée le :</span> <?php echo esc_html($formatted_date); ?></p>
         <p><span class="label_infos">Mode de livraison :</span> Livraison à votre domicile</p>
         <div id="container_address">
             <div>
-                <p class="label_infos">Adr. de livraison</p>
+                <p class="label_infos">Adr. de livraison :</p>
                 <p><?php echo esc_html($shipping_first_name . ' ' . $shipping_last_name); ?></p>
                 <p><?php echo esc_html($shipping_address_1); ?>,
                     <?php echo esc_html($shipping_postcode . ' ' . $shipping_city); ?>
@@ -97,7 +97,7 @@ $formatted_date = ucfirst($formatted_date); // Met la première lettre en majusc
             </div>
 
             <div>
-                <p class="label_infos">Adr. de facturation</p>
+                <p class="label_infos">Adr. de facturation :</p>
                 <p><?php echo esc_html($billing_first_name . ' ' . $billing_last_name); ?></p>
                 <p><?php echo esc_html($billing_address_1); ?>,
                     <?php echo esc_html($billing_postcode . ' ' . $billing_city); ?>

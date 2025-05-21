@@ -22,20 +22,20 @@ defined( 'ABSPATH' ) || exit;
 <tr>
     <td class="footer-container">
         <div class="email-signature">
-            <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/a-bientot-Carole.png"
+            <img src="http://la-porte-cot.local/wp-content/uploads/2025/05/a-bientot-Carole-2.png"
                 alt="Signature">
         </div>
         <table class="footer-info-table">
             <tr>
                 <td class="footer-info-left">
-                    <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/icon-park-solid_local.png"
+                    <img src="http://la-porte-cot.local/wp-content/uploads/2025/05/icon-park-solid_local-2.png"
                         alt="Point de vente" class="footer-info-icon" /></a>
                     <p class="footer-info-title">Notre point de vente</p>
                     <u class="footer-info-value">1455 Boulevard Henri Barbusse,
                         13020 Bierre-l'Étang</u>
                 </td>
                 <td class="footer-info-right">
-                    <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/mingcute_phone-fill.png"
+                    <img src="http://la-porte-cot.local/wp-content/uploads/2025/05/mingcute_phone-fill-2.png"
                         alt="Point de vente" class="footer-info-icon" /></a>
                     <p class="footer-info-title">Besoin d'aide ?</p>
                     <u class="footer-info-value">(+33) 06 56 66 34 56</u>
@@ -45,15 +45,15 @@ defined( 'ABSPATH' ) || exit;
         <div class="social-media-container">
             <p class="social-media-title">SUIVEZ NOUS SUR :</p>
             <a href="https://www.facebook.com/carolelaporteacoteberre" class="social-media-link facebook">
-                <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/facebook.png" alt="Facebook"
+                <img src="http://la-porte-cot.local/wp-content/uploads/2025/05/facebook-2.png" alt="Facebook"
                     class="facebook-icon">
             </a>
             <a href="https://www.instagram.com/carolelaporteacote" class="social-media-link instagram">
-                <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/intagram.png" alt="Instagram"
+                <img src="http://la-porte-cot.local/wp-content/uploads/2025/05/intagram-2.png" alt="Instagram"
                     class="instagram-icon">
             </a>
             <a href="#" class="social-media-link">
-                <img src="http://carole-la-porte-a-cote.localwp/wp-content/uploads/2025/05/youtube.png" alt="YouTube"
+                <img src="http://la-porte-cot.local/wp-content/uploads/2025/05/youtube-2.png" alt="YouTube"
                     class="youtube-icon">
             </a>
         </div>
